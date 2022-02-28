@@ -2,9 +2,13 @@ apiVersion: v1
 kind: Service
 metadata:
   name: mongo-exp-service
+  labels:
+    appname: mongodb 
+    type: exp
 spec:
   selector:
-    app: mongo-exp
+    appname: mongodb
+    type: exp
   type: NodePort  
   ports:
     - protocol: TCP

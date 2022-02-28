@@ -7,3 +7,5 @@ resources:
 - 04-configmap.yaml
 - 05-mongo-exp-deployment.yaml
 - 06-mongo-exp-service.yaml
+- 07-mongo-exp-route.yaml
+- 08-mongoDB-pvc.yaml

@@ -3,16 +3,16 @@ kind: Deployment
 metadata:
   name: mongodb-deployment
   labels:
-    app: mongodb
+    appname: mongodb
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: mongodb
+      appname: mongodb
   template:
     metadata:
       labels:
-        app: mongodb
+        appname: mongodb
     spec:
       containers:
       - name: mongodb
@@ -31,4 +31,10 @@ spec:
             secretKeyRef:
               name: mongodb-secret
               key: mongo-root-password
-      
+        volumeMounts:
+          - mountPath: "/data/db"
+            name: mongo-pvc 
+      volumes:
+        - name: mongo-pvc
+          persistentVolumeClaim:
+            claimName: mongo-pvc
